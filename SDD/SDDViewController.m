@@ -9,10 +9,42 @@
 #import "SDDViewController.h"
 
 @interface SDDViewController ()
+-(void) ClearTextBox;
 
 @end
 
 @implementation SDDViewController
+
+@synthesize tbUserId;
+@synthesize tbPassword;
+
+-(void) ClearTextBox
+{
+    [tbUserId resignFirstResponder];
+    [tbPassword resignFirstResponder];
+}
+
+-(IBAction)textFieldShouldReturn:(id)sender
+{
+    [sender resignFirstResponder];
+}
+
+-(IBAction)backgroundShouldBeTouched:(id)sender{
+    [self ClearTextBox];
+}
+
+-(IBAction)Login:(id)sender
+{
+    [self ClearTextBox];
+    NSString *userId = tbUserId.text;
+    NSString *password = tbPassword.text;
+    
+    NSString *message =[[NSString alloc] initWithFormat:@"UserId = %@ \nPassword = %@",userId,password];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login values" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    
+}
 
 - (void)viewDidLoad
 {

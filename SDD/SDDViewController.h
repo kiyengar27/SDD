@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface SDDViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *tbUserId;
+@property (weak, nonatomic) IBOutlet UITextField *tbPassword;
+-(IBAction)textFieldShouldReturn:(id)sender;
+-(IBAction)backgroundShouldBeTouched:(id)sender;
 
+-(IBAction)Login:(id)sender;
 @end
